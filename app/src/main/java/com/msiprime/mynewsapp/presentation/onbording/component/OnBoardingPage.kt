@@ -1,5 +1,6 @@
 package com.msiprime.mynewsapp.presentation.onbording.component
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,6 +21,7 @@ import com.msiprime.mynewsapp.R
 import com.msiprime.mynewsapp.presentation.Dimens.mediumPadding1
 import com.msiprime.mynewsapp.presentation.Dimens.mediumPadding2
 import com.msiprime.mynewsapp.presentation.onbording.Page
+import com.msiprime.mynewsapp.presentation.onbording.pages
 import com.msiprime.mynewsapp.ui.theme.MyNewsAppTheme
 
 @Composable
@@ -59,15 +61,16 @@ fun OnBoardingPage(
 
 }
 
-@Preview
+@Preview(showBackground = true)
+@Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun OnBoardingPagePreview() {
     MyNewsAppTheme {
-        val page = Page(
-            tittle = "Lorem ipsum mother fucker",
-            description = "Lorem ipsum mother fucker lmao lol haha",
-            image = R.drawable.onboarding1
-        )
-        OnBoardingPage(page = page, modifier = Modifier)
+//        val page = Page(
+//            tittle = "Lorem ipsum mother fucker",
+//            description = "Lorem ipsum mother fucker lmao lol haha",
+//            image = R.drawable.onboarding1
+//        )
+        OnBoardingPage(page = pages[0])
     }
 }
