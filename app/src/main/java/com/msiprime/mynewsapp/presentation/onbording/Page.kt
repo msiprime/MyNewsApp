@@ -9,7 +9,7 @@ data class Page(
     @DrawableRes val image: Int
 )
 
-val pages = listOf<Page>(
+val pages = listOf(
     Page(
         tittle = "Lorem Ipsum is simply dummy",
         description = "Lorem Ipsum is simply dummy is i don't know what i am saying",

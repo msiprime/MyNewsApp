@@ -66,11 +66,6 @@ fun OnBoardingPage(
 @Composable
 fun OnBoardingPagePreview() {
     MyNewsAppTheme {
-//        val page = Page(
-//            tittle = "Lorem ipsum mother fucker",
-//            description = "Lorem ipsum mother fucker lmao lol haha",
-//            image = R.drawable.onboarding1
-//        )
         OnBoardingPage(page = pages[0])
     }
 }
