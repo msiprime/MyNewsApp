@@ -19,6 +19,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.msiprime.mynewsapp.presentation.Dimens.mediumPadding2
 import com.msiprime.mynewsapp.presentation.Dimens.pageIndicatorWidth
 import com.msiprime.mynewsapp.presentation.common.NewsButton
@@ -63,7 +64,7 @@ fun OnBoardingScreen() {
             PageIndicator(
                 pageSize = pages.size,
                 selectedPage = pagerState.currentPage,
-                modifier = Modifier.height(pageIndicatorWidth)
+                modifier = Modifier.height(15.dp)
             )
 
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -94,7 +95,7 @@ fun OnBoardingScreen() {
                 )
             }
         }
-
+        Spacer(modifier = Modifier.weight(0.5f))
     }
 }
 
