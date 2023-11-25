@@ -11,8 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.msiprime.mynewsapp.ui.theme.MyNewsAppTheme
-import com.msiprime.mynewsapp.ui.theme.WhiteGray
+import com.msiprime.mynewsapp.presentation.ui.theme.MyNewsAppTheme
+import com.msiprime.mynewsapp.presentation.ui.theme.WhiteGray
 
 @Composable
 fun NewsButton(
@@ -29,7 +29,9 @@ fun NewsButton(
 
         Text(
             text = text,
-            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold)
+            style = MaterialTheme.typography.labelMedium.copy(
+                fontWeight = FontWeight.SemiBold
+            )
         )
     }
 }
@@ -41,14 +43,12 @@ fun NewsTextButton(
 ) {
     TextButton(
         onClick = onClick
-//        Modifier.background(
-//            color = MaterialTheme.colorScheme.primary,
-//            shape = RoundedCornerShape(6.dp)
-//        )
     ) {
         Text(
             text = text,
-            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold),
+            style = MaterialTheme.typography.labelMedium.copy(
+                fontWeight = FontWeight.SemiBold
+            ),
             color = WhiteGray
         )
     }

@@ -1,4 +1,4 @@
-package com.msiprime.mynewsapp.ui.theme
+package com.msiprime.mynewsapp.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

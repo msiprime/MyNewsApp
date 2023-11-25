@@ -26,7 +26,7 @@ import com.msiprime.mynewsapp.presentation.common.NewsButton
 import com.msiprime.mynewsapp.presentation.common.NewsTextButton
 import com.msiprime.mynewsapp.presentation.onbording.component.OnBoardingPage
 import com.msiprime.mynewsapp.presentation.onbording.component.PageIndicator
-import com.msiprime.mynewsapp.ui.theme.MyNewsAppTheme
+import com.msiprime.mynewsapp.presentation.ui.theme.MyNewsAppTheme
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)

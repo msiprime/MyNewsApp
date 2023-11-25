@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import com.msiprime.mynewsapp.presentation.Dimens.indicatorSize
-import com.msiprime.mynewsapp.ui.theme.BlueGray
+import com.msiprime.mynewsapp.presentation.ui.theme.BlueGray
 
 @Composable
 fun PageIndicator(

@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import com.msiprime.mynewsapp.presentation.onbording.OnBoardingScreen
-import com.msiprime.mynewsapp.ui.theme.MyNewsAppTheme
+import com.msiprime.mynewsapp.presentation.ui.theme.MyNewsAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -22,7 +22,7 @@ import com.msiprime.mynewsapp.presentation.Dimens.mediumPadding1
 import com.msiprime.mynewsapp.presentation.Dimens.mediumPadding2
 import com.msiprime.mynewsapp.presentation.onbording.Page
 import com.msiprime.mynewsapp.presentation.onbording.pages
-import com.msiprime.mynewsapp.ui.theme.MyNewsAppTheme
+import com.msiprime.mynewsapp.presentation.ui.theme.MyNewsAppTheme
 
 @Composable
 fun OnBoardingPage(

@@ -1,4 +1,4 @@
-package com.msiprime.mynewsapp.ui.theme
+package com.msiprime.mynewsapp.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
