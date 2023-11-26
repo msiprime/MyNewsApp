@@ -21,16 +21,16 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @Inject
-    lateinit var appEntryUseCases: AppEntryUseCases
+  //  lateinit var appEntryUseCases: AppEntryUseCases
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         installSplashScreen()
-        lifecycleScope.launch {
-            appEntryUseCases.readAppEntry().collect {
-                Log.d("Test", it.toString())
-            }
-        }
+//        lifecycleScope.launch {
+//            appEntryUseCases.readAppEntry().collect {
+//                Log.d("Test", it.toString())
+//            }
+//        }
         setContent {
             MyNewsAppTheme {
                 Surface(
