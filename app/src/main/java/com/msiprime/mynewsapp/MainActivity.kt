@@ -10,9 +10,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.lifecycleScope
 import com.msiprime.mynewsapp.domain.usecase.AppEntryUseCases
 import com.msiprime.mynewsapp.presentation.onbording.OnBoardingScreen
+import com.msiprime.mynewsapp.presentation.onbording.OnBoardingViewModel
 import com.msiprime.mynewsapp.presentation.ui.theme.MyNewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -21,23 +23,28 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @Inject
-  //  lateinit var appEntryUseCases: AppEntryUseCases
+    lateinit var useCases: AppEntryUseCases
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         installSplashScreen()
-//        lifecycleScope.launch {
-//            appEntryUseCases.readAppEntry().collect {
-//                Log.d("Test", it.toString())
-//            }
-//        }
+
+        lifecycleScope.launch {
+            useCases.readAppEntry().collect {
+                Log.d("Test", it.toString())
+            }
+        }
         setContent {
             MyNewsAppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    OnBoardingScreen()
+                    val viewModel: OnBoardingViewModel = hiltViewModel()
+                    OnBoardingScreen(event = viewModel::onEvent)
+//                    event = {
+//                        viewModel.onEvent(it)
+//                    } these are equivalent to (viewModel::onnEvent)
                 }
             }
         }
