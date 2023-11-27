@@ -1,5 +1,6 @@
 package com.msiprime.mynewsapp.presentation.navgraph
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
@@ -25,6 +26,16 @@ fun NavGraph(
                 OnBoardingScreen(event = viewModel::onEvent)
             }
         }
+        navigation(
+            route = Route.NewsNavigation.route,
+            startDestination = Route.NewsNavigatorScreen.route
+        ) {
+            composable(route = Route.NewsNavigatorScreen.route) {
+                Text(text = "News Navigator Screen")
+            }
+
+        }
     }
+
 
 }
