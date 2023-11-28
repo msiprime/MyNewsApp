@@ -30,5 +30,6 @@ object AppModule {
         readAppEntry = ReadAppEntry(localUserManager),
         saveAppEntry = SaveAppEntry(localUserManager)
     )
+    //part 9
 
 }
