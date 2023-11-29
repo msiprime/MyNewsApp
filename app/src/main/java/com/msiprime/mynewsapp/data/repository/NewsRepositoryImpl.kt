@@ -15,7 +15,7 @@ class NewsRepositoryImpl(
     override fun getNews(sources: List<String>): Flow<PagingData<Article>> {
         return Pager(
             config = PagingConfig(pageSize = 10),
-            PagingSourceFactory = {
+            pagingSourceFactory = {
                 NewsPagingSource(
                     source = sources.joinToString(separator = ","),
                     newsApi = newsApi

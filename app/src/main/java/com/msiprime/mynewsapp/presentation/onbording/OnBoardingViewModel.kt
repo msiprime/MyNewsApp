@@ -2,8 +2,7 @@ package com.msiprime.mynewsapp.presentation.onbording
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.msiprime.mynewsapp.domain.usecase.AppEntryUseCases
+import com.msiprime.mynewsapp.domain.usecase.app_entry.AppEntryUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

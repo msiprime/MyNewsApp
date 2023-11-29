@@ -1,4 +1,4 @@
-package com.msiprime.mynewsapp.domain.usecase
+package com.msiprime.mynewsapp.domain.usecase.app_entry
 
 import com.msiprime.mynewsapp.domain.manager.LocalUserManager
 import kotlinx.coroutines.flow.Flow

@@ -3,9 +3,9 @@ package com.msiprime.mynewsapp.di
 import android.app.Application
 import com.msiprime.mynewsapp.data.manager.LocalUserManagerImpl
 import com.msiprime.mynewsapp.domain.manager.LocalUserManager
-import com.msiprime.mynewsapp.domain.usecase.AppEntryUseCases
-import com.msiprime.mynewsapp.domain.usecase.ReadAppEntry
-import com.msiprime.mynewsapp.domain.usecase.SaveAppEntry
+import com.msiprime.mynewsapp.domain.usecase.app_entry.AppEntryUseCases
+import com.msiprime.mynewsapp.domain.usecase.app_entry.ReadAppEntry
+import com.msiprime.mynewsapp.domain.usecase.app_entry.SaveAppEntry
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
