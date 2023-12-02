@@ -4,4 +4,5 @@ data class AppEntryUseCases(
     val readAppEntry: ReadAppEntry,
     val saveAppEntry: SaveAppEntry
     //trying git gcm
+    // added manager, configured gcm
 )
