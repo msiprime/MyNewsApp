@@ -1,6 +1,5 @@
 package com.msiprime.mynewsapp.presentation.common
 
-import android.content.DialogInterface.OnClickListener
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
