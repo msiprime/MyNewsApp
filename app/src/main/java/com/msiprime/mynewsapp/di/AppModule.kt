@@ -11,6 +11,7 @@ import com.msiprime.mynewsapp.domain.usecase.app_entry.ReadAppEntry
 import com.msiprime.mynewsapp.domain.usecase.app_entry.SaveAppEntry
 import com.msiprime.mynewsapp.domain.usecase.news.GetNews
 import com.msiprime.mynewsapp.domain.usecase.news.NewsUseCases
+import com.msiprime.mynewsapp.domain.usecase.news.SearchNews
 import com.msiprime.mynewsapp.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -62,7 +63,8 @@ object AppModule {
         newsRepository: NewsRepository
     ): NewsUseCases {
         return NewsUseCases(
-            getNews = GetNews(newsRepository )
+            getNews = GetNews(newsRepository),
+            searchNews = SearchNews(newsRepository)
         )
     }
 
