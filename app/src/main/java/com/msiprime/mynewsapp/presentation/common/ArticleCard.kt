@@ -89,7 +89,7 @@ fun ArticleCard(
                     color = colorResource(id = R.color.body)
                 )
             }
-
+ 
         }
     }
 }
