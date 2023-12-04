@@ -13,9 +13,12 @@ import com.msiprime.mynewsapp.domain.repository.NewsRepository
 import com.msiprime.mynewsapp.domain.usecase.app_entry.AppEntryUseCases
 import com.msiprime.mynewsapp.domain.usecase.app_entry.ReadAppEntry
 import com.msiprime.mynewsapp.domain.usecase.app_entry.SaveAppEntry
+import com.msiprime.mynewsapp.domain.usecase.news.DeleteArticle
 import com.msiprime.mynewsapp.domain.usecase.news.GetNews
 import com.msiprime.mynewsapp.domain.usecase.news.NewsUseCases
 import com.msiprime.mynewsapp.domain.usecase.news.SearchNews
+import com.msiprime.mynewsapp.domain.usecase.news.SelectArticles
+import com.msiprime.mynewsapp.domain.usecase.news.UpsertArticle
 import com.msiprime.mynewsapp.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -64,11 +67,14 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNewsUseCases(
-        newsRepository: NewsRepository
+        newsRepository: NewsRepository, newsDao: NewsDao
     ): NewsUseCases {
         return NewsUseCases(
             getNews = GetNews(newsRepository),
-            searchNews = SearchNews(newsRepository)
+            searchNews = SearchNews(newsRepository),
+            upsertArticle = UpsertArticle(newsDao),
+            deleteArticle = DeleteArticle(newsDao),
+            selectArticles = SelectArticles(newsDao)
         )
     }
 

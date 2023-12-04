@@ -6,12 +6,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import com.msiprime.mynewsapp.presentation.bookmark.BookmarkScreen
+import com.msiprime.mynewsapp.presentation.bookmark.BookmarkViewModel
 import com.msiprime.mynewsapp.presentation.onbording.OnBoardingScreen
 import com.msiprime.mynewsapp.presentation.onbording.OnBoardingViewModel
 import com.msiprime.mynewsapp.presentation.search.SearchScreen
 import com.msiprime.mynewsapp.presentation.search.SearchViewModel
 
-@Composable
+@Composable 
 fun NavGraph(
     startDestination: String
 ) {
@@ -32,12 +34,8 @@ fun NavGraph(
             startDestination = Route.NewsNavigatorScreen.route
         ) {
             composable(route = Route.NewsNavigatorScreen.route) {
-                val viewModel: SearchViewModel = hiltViewModel()
-                SearchScreen(
-                    state = viewModel.state.value,
-                    event = viewModel::onEvent,
-                    navigateToDetails ={}
-                )
+                val viewModel: BookmarkViewModel = hiltViewModel()
+              BookmarkScreen(state = viewModel.state.value, navigateToDetails = {})
             }
 
         }
