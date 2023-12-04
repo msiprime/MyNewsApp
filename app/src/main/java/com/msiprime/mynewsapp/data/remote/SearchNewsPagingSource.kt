@@ -5,7 +5,7 @@ import androidx.paging.PagingState
 import com.msiprime.mynewsapp.domain.model.Article
 
 class SearchNewsPagingSource(
-    private val newsApi: NewsApi,
+    private val api: NewsApi,
     private val searchQuery: String,
     private val sources: String
 ) : PagingSource<Int, Article>() {
@@ -22,7 +22,7 @@ class SearchNewsPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         val page = params.key ?: 1
         return try {
-            val newsResponse = newsApi.searchNews(searchQuery = searchQuery, sources = sources, page = page)
+            val newsResponse = api.searchNews(searchQuery = searchQuery, sources = sources, page = page)
             totalNewsCount += newsResponse.articles.size
             val articles = newsResponse.articles.distinctBy { it.title } //Remove duplicates
 
@@ -36,4 +36,6 @@ class SearchNewsPagingSource(
             LoadResult.Error(throwable = e)
         }
     }
+
+
 }

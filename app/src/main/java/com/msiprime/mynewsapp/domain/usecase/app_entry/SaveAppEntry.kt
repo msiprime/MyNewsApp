@@ -1,13 +1,14 @@
 package com.msiprime.mynewsapp.domain.usecase.app_entry
 
 import com.msiprime.mynewsapp.domain.manager.LocalUserManager
+import javax.inject.Inject
 
-class SaveAppEntry(
-    private val localUserManager: LocalUserManager
+class SaveAppEntry @Inject constructor(
+    private val localUserManger: LocalUserManager
 ) {
 
-    suspend operator fun invoke() {
-        localUserManager.saveAppEntry()
+    suspend operator fun invoke(){
+        localUserManger.saveAppEntry()
     }
 
 }

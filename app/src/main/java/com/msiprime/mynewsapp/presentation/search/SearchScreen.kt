@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.msiprime.mynewsapp.domain.model.Article
-import com.msiprime.mynewsapp.presentation.Dimens.mediumPadding1
+import com.msiprime.mynewsapp.presentation.Dimens.MediumPadding1
 import com.msiprime.mynewsapp.presentation.common.ArticlesList
 import com.msiprime.mynewsapp.presentation.common.SearchBar
 
@@ -24,9 +24,8 @@ fun SearchScreen(
 
     Column(
         modifier = Modifier
-            .padding(top = mediumPadding1, start = mediumPadding1, end = mediumPadding1)
+            .padding(top = MediumPadding1, start = MediumPadding1, end = MediumPadding1)
             .statusBarsPadding()
-            .fillMaxSize()
     ) {
         SearchBar(
             text = state.searchQuery,
@@ -36,7 +35,7 @@ fun SearchScreen(
                 event(SearchEvent.SearchNews)
             }
         )
-        Spacer(modifier = Modifier.height(mediumPadding1))
+        Spacer(modifier = Modifier.height(MediumPadding1))
         state.articles?.let {
             val articles = it.collectAsLazyPagingItems()
             ArticlesList(

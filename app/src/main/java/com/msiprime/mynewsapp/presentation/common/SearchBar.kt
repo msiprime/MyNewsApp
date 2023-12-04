@@ -46,8 +46,8 @@ fun SearchBar(
         MutableInteractionSource()
     }
     val isClicked = interactionSource.collectIsPressedAsState().value
-    LaunchedEffect(key1 = isClicked) {
-        if (isClicked) {
+    LaunchedEffect(key1 = isClicked){
+        if(isClicked){
             onClick?.invoke()
         }
     }
@@ -115,8 +115,7 @@ fun Modifier.searchBar(): Modifier = composed {
 @Composable
 fun SearchBarPreview() {
     MyNewsAppTheme {
-        SearchBar(text = "", onValueChange = {}, readOnly = false)
-        {
+        SearchBar(text = "", onValueChange = {}, readOnly = false) {
 
         }
     }

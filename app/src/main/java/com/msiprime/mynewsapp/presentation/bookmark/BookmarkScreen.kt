@@ -16,7 +16,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import com.msiprime.mynewsapp.R
 import com.msiprime.mynewsapp.domain.model.Article
-import com.msiprime.mynewsapp.presentation.Dimens.mediumPadding1
+import com.msiprime.mynewsapp.presentation.Dimens.MediumPadding1
 import com.msiprime.mynewsapp.presentation.common.ArticlesList
 
 
@@ -27,9 +27,9 @@ fun BookmarkScreen(
 ) {
     Column(
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxWidth()
             .statusBarsPadding()
-            .padding(top = mediumPadding1, start = mediumPadding1, end = mediumPadding1)
+            .padding(top = MediumPadding1, start = MediumPadding1, end = MediumPadding1)
     ) {
 
         Text(
@@ -40,7 +40,7 @@ fun BookmarkScreen(
             )
         )
 
-        Spacer(modifier = Modifier.height(mediumPadding1))
+        Spacer(modifier = Modifier.height(MediumPadding1))
 
         ArticlesList(
             articles = state.articles,
@@ -48,3 +48,4 @@ fun BookmarkScreen(
         )
     }
 }
+

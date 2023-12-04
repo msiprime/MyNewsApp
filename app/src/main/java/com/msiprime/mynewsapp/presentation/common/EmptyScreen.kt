@@ -27,6 +27,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
+
 import com.msiprime.mynewsapp.R
 import java.net.ConnectException
 import java.net.SocketTimeoutException
@@ -42,7 +43,7 @@ fun EmptyScreen(error: LoadState.Error? = null) {
         mutableStateOf(R.drawable.ic_network_error)
     }
 
-    if (error == null) {
+    if (error == null){
         message = "You have not saved news so far !"
         icon = R.drawable.ic_search_document
     }
@@ -111,5 +112,5 @@ fun parseErrorMessage(error: LoadState.Error?): String {
 @Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun EmptyScreenPreview() {
-    EmptyContent(alphaAnim = 0.3f, message = "Internet Unavailable.", R.drawable.ic_network_error)
+    EmptyContent(alphaAnim = 0.3f, message = "Internet Unavailable.",R.drawable.ic_network_error)
 }

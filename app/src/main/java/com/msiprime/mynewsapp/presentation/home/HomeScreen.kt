@@ -24,28 +24,35 @@ import androidx.compose.ui.unit.sp
 import androidx.paging.compose.LazyPagingItems
 import com.msiprime.mynewsapp.R
 import com.msiprime.mynewsapp.domain.model.Article
-import com.msiprime.mynewsapp.presentation.Dimens
-import com.msiprime.mynewsapp.presentation.Dimens.mediumPadding1
+import com.msiprime.mynewsapp.presentation.Dimens.MediumPadding1
 import com.msiprime.mynewsapp.presentation.common.ArticlesList
 import com.msiprime.mynewsapp.presentation.common.SearchBar
-import com.msiprime.mynewsapp.presentation.navgraph.Route
+
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit) {
+fun HomeScreen(
+    articles: LazyPagingItems<Article>,
+    navigateToSearch: () -> Unit,
+    navigateToDetails: (Article) -> Unit
+) {
+
     val titles by remember {
         derivedStateOf {
             if (articles.itemCount > 10) {
-                articles.itemSnapshotList.items.slice(IntRange(0, 9))
-                    .joinToString(separator = " \uD83d\uDFE5 ") { it.title }
-            } else ""
+                articles.itemSnapshotList.items
+                    .slice(IntRange(start = 0, endInclusive = 9))
+                    .joinToString(separator = " \uD83D\uDFE5 ") { it.title }
+            } else {
+                ""
+            }
         }
     }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = mediumPadding1)
+            .padding(top = MediumPadding1)
             .statusBarsPadding()
     ) {
         Image(
@@ -54,51 +61,38 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit) {
             modifier = Modifier
                 .width(150.dp)
                 .height(30.dp)
-                .padding(horizontal = mediumPadding1)
+                .padding(horizontal = MediumPadding1)
         )
-        Spacer(modifier = Modifier.width(mediumPadding1))
 
-        SearchBar(modifier = Modifier
-            .padding(horizontal = mediumPadding1)
-            .fillMaxWidth(),
+        Spacer(modifier = Modifier.height(MediumPadding1))
+
+        SearchBar(
+            modifier = Modifier
+                .padding(horizontal = MediumPadding1)
+                .fillMaxWidth(),
             text = "",
             readOnly = true,
             onValueChange = {},
             onSearch = {},
-            onClick = {
-                navigate(Route.DetailsScreen.route)
-            }
+            onClick = navigateToSearch
         )
 
-        Spacer(modifier = Modifier.height(mediumPadding1))
+        Spacer(modifier = Modifier.height(MediumPadding1))
 
         Text(
-            text = titles,
-            modifier = Modifier
+            text = titles, modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = mediumPadding1)
-                .basicMarquee(),
-            fontSize = 12.sp,
+                .padding(start = MediumPadding1)
+                .basicMarquee(), fontSize = 12.sp,
             color = colorResource(id = R.color.placeholder)
         )
 
-        Spacer(modifier = Modifier.height(mediumPadding1))
+        Spacer(modifier = Modifier.height(MediumPadding1))
 
-        ArticlesList(modifier = Modifier.padding(horizontal = mediumPadding1),
+        ArticlesList(
+            modifier = Modifier.padding(horizontal = MediumPadding1),
             articles = articles,
-            onClick = {
-                navigate(Route.DetailsScreen.route)
-            }
+            onClick = navigateToDetails
         )
     }
 }
-
-
-
-
-
-
-
-
-
-

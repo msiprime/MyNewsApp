@@ -18,47 +18,40 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.msiprime.mynewsapp.R
-import com.msiprime.mynewsapp.presentation.Dimens.mediumPadding1
-import com.msiprime.mynewsapp.presentation.Dimens.mediumPadding2
+import com.msiprime.mynewsapp.presentation.Dimens.MediumPadding1
+import com.msiprime.mynewsapp.presentation.Dimens.MediumPadding2
 import com.msiprime.mynewsapp.presentation.onbording.Page
 import com.msiprime.mynewsapp.presentation.onbording.pages
 import com.msiprime.mynewsapp.presentation.ui.theme.MyNewsAppTheme
 
 @Composable
 fun OnBoardingPage(
+    modifier: Modifier = Modifier,
     page: Page,
-    modifier: Modifier = Modifier
 ) {
-
     Column(modifier = modifier) {
         Image(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(0.60f),
             painter = painterResource(id = page.image),
             contentDescription = null,
-            modifier = modifier
-                .fillMaxWidth()
-                .fillMaxHeight(0.6f),
             contentScale = ContentScale.Crop
         )
-        Spacer(
-            modifier = Modifier.height(mediumPadding1)
-        )
+        Spacer(modifier = Modifier.height(MediumPadding1))
         Text(
-            text = page.tittle,
-            modifier = Modifier
-                .padding(horizontal = mediumPadding2),
+            modifier = Modifier.padding(horizontal = MediumPadding2),
+            text = page.title,
             style = MaterialTheme.typography.displaySmall.copy(fontWeight = FontWeight.Bold),
             color = colorResource(id = R.color.display_small)
         )
         Text(
+            modifier = Modifier.padding(horizontal = MediumPadding2),
             text = page.description,
-            modifier = Modifier
-                .padding(horizontal = mediumPadding2),
             style = MaterialTheme.typography.bodyMedium,
             color = colorResource(id = R.color.text_medium)
         )
-
     }
-
 }
 
 @Preview(showBackground = true)
@@ -66,6 +59,12 @@ fun OnBoardingPage(
 @Composable
 fun OnBoardingPagePreview() {
     MyNewsAppTheme {
-        OnBoardingPage(page = pages[0])
+        OnBoardingPage(
+            page = Page(
+                title = "Lorem Ipsum is simply dummy",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                image = R.drawable.onboarding1
+            )
+        )
     }
 }

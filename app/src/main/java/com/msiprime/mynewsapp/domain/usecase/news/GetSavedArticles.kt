@@ -2,14 +2,15 @@ package com.msiprime.mynewsapp.domain.usecase.news
 
 import com.msiprime.mynewsapp.data.local.NewsDao
 import com.msiprime.mynewsapp.domain.model.Article
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class DeleteArticle @Inject constructor(
+class GetSavedArticles @Inject constructor(
     private val newsDao: NewsDao
 ) {
 
-    suspend operator fun invoke(article: Article){
-        newsDao.delete(article = article)
+    operator fun invoke(): Flow<List<Article>>{
+        return newsDao.getArticles()
     }
 
 }
